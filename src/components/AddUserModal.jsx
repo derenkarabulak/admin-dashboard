@@ -18,7 +18,7 @@ const AddUserModal = ({ closeModal }) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:80/php-backend/index.php", inputs)
+      .post("https://derenkarabulak.com:80/index.php", inputs)
       .then(function (response) {
         console.log(response.data);
       });
@@ -39,7 +39,7 @@ const AddUserModal = ({ closeModal }) => {
           <Form
             onSubmit={handleSubmit}
             method="post"
-            action="http://localhost/php-backend/"
+            action="https://derenkarabulak.com/"
           >
             <Form.Field>
               <Input

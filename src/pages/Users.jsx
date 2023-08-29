@@ -38,7 +38,7 @@ const Users = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost/php-backend/")
+    fetch("https://derenkarabulak.com/")
       .then((result) => result.json())
       .then((rowData) => setRowData(rowData));
   }, []);

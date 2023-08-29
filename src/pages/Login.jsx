@@ -45,7 +45,7 @@ const Login = () => {
   }, []);
 
   const getUsers = () => {
-    axios.get("http://localhost/php-backend/").then(function (response) {
+    axios.get("https://derenkarabulak.com/").then(function (response) {
       //console.log(response.data);
       setUsers(response.data);
     });
