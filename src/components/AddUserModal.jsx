@@ -18,7 +18,7 @@ const AddUserModal = ({ closeModal }) => {
     e.preventDefault();
 
     axios
-      .post("https://derenkarabulak.com:80/index.php", inputs)
+      .post("https://derenkarabulak.com/index.php", inputs)
       .then(function (response) {
         console.log(response.data);
       });
