@@ -1,0 +1,48 @@
+.modalBackground {
+  margin-left: 50px;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex-direction: column;
+  padding: 25px;
+  float: right;
+}
+
+#xBtn {
+  margin-left: 300px;
+  float: right;
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modalContainer .body {
+  margin-top: 20px;
+  flex: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .footer button {
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
