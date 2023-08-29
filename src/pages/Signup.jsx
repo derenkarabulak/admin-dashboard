@@ -20,7 +20,7 @@ const Signup = () => {
     e.preventDefault();
 
     axios
-      .post("https://derenkarabulak.com:80/index.php", inputs)
+      .post("https://derenkarabulak.com/index.php", inputs)
       .then(function (response) {
         console.log(response.data);
         navigate("/");
@@ -71,7 +71,7 @@ const Signup = () => {
                 <Button type="submit">Submit</Button>
                 <p className="py-8">
                   <span className="text-gray-500">Have an account?</span>
-                  <Link to="/login" className="underline mx-2 text-slate-400">
+                  <Link to="/" className="underline mx-2 text-slate-400">
                     Sign in
                   </Link>
                 </p>
