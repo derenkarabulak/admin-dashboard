@@ -63,6 +63,7 @@ const PopularTable = () => {
             defaultColDef={defaultColDef}
             animateRows={true}
             rowSelection="multiple"
+            rowMultiSelectWithClick={true}
             onCellClicked={cellClickedListener}
           />
         </div>

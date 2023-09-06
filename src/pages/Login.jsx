@@ -22,7 +22,9 @@ const Login = () => {
     e.preventDefault();
     //console.log(inputs);
     const check = users.find(
-      (user) => JSON.stringify(user) === JSON.stringify(inputs)
+      (user) =>
+        JSON.stringify(user.name) === JSON.stringify(inputs.name) &&
+        JSON.stringify(user.password) === JSON.stringify(inputs.password)
     );
     if (check) {
       console.log("Inputs exist in users.");
@@ -45,10 +47,12 @@ const Login = () => {
   }, []);
 
   const getUsers = () => {
-    axios.get("https://derenkarabulak.com/").then(function (response) {
-      //console.log(response.data);
-      setUsers(response.data);
-    });
+    axios
+      .get("https://api.derenkarabulak.com/api/users/")
+      .then(function (response) {
+        //console.log(response.data);
+        setUsers(response.data);
+      });
   };
 
   return (

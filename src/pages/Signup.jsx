@@ -8,24 +8,26 @@ import "../index.css";
 const Signup = () => {
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
+  const [passwordType, setPasswordType] = useState("password");
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    axios
-      .post("https://derenkarabulak.com/index.php", inputs)
-      .then(function (response) {
-        console.log(response.data);
-        navigate("/");
-      });
-    console.log(inputs);
+    if (inputs.name && inputs.email && inputs.password !== null) {
+      axios
+        .post("https://api.derenkarabulak.com/api/user/save", inputs)
+        .then(function (response) {
+          console.log(response.data);
+          navigate("/home");
+        });
+    } else {
+      alert("Username/Email/Password cannot be empty!");
+    }
   };
   return (
     <>
@@ -39,11 +41,7 @@ const Signup = () => {
               <Header as="h1" textAlign="center" color="teal">
                 Sign Up
               </Header>
-              <Form
-                onSubmit={handleSubmit}
-                method="post"
-                action="https://derenkarabulak.com/"
-              >
+              <Form onSubmit={handleSubmit}>
                 <Form.Field>
                   <Input
                     name="name"
@@ -58,15 +56,46 @@ const Signup = () => {
                 </Form.Field>
                 <Form.Field>
                   <Input
+                    name="email"
+                    onChange={handleChange}
+                    type="text"
+                    iconPosition="left"
+                    placeholder="Email"
+                  >
+                    <Icon name="at" />
+                    <input />
+                  </Input>
+                </Form.Field>
+                <Form.Field>
+                  <Input
                     name="password"
                     onChange={handleChange}
-                    type="password"
-                    iconPosition="left"
+                    type={passwordType}
                     placeholder="Password"
+                    iconPosition="left"
                   >
                     <Icon name="key" />
                     <input />
                   </Input>
+                  {passwordType === "password" ? (
+                    <span onClick={() => setPasswordType("text")}>
+                      <Icon
+                        name="eye slash"
+                        className="float-right"
+                        color="grey"
+                        size="large"
+                      />
+                    </span>
+                  ) : (
+                    <span onClick={() => setPasswordType("password")}>
+                      <Icon
+                        name="eye"
+                        className="float-right"
+                        color="grey"
+                        size="large"
+                      />
+                    </span>
+                  )}
                 </Form.Field>
                 <Button type="submit">Submit</Button>
                 <p className="py-8">
