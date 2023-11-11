@@ -48,7 +48,7 @@ const Login = () => {
 
   const getUsers = () => {
     axios
-      .get("https://api.derenkarabulak.com/api/users/")
+      .get("https://api.derenkarabulak.com/users/")
       .then(function (response) {
         //console.log(response.data);
         setUsers(response.data);

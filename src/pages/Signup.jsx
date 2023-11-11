@@ -20,7 +20,7 @@ const Signup = () => {
     e.preventDefault();
     if (inputs.name && inputs.email && inputs.password !== null) {
       axios
-        .post("https://api.derenkarabulak.com/api/user/save", inputs)
+        .post("https://api.derenkarabulak.com/user/save", inputs)
         .then(function (response) {
           console.log(response.data);
           navigate("/home");

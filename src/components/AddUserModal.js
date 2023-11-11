@@ -19,7 +19,7 @@ const AddUserModal = () => {
     event.preventDefault();
 
     axios
-      .post("https://api.derenkarabulak.com/api/user/save", inputs)
+      .post("https://api.derenkarabulak.com/user/save", inputs)
       .then(function (response) {
         console.log(response.data);
         navigate("/users");

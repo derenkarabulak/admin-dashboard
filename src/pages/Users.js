@@ -13,16 +13,15 @@ export default function Users() {
 
   function getUsers() {
     axios
-      .get("https://api.derenkarabulak.com/api/users/")
+      .get("https://api.derenkarabulak.com/users/")
       .then(function (response) {
-        console.log(response.data);
         setUsers(response.data);
       });
   }
 
   const deleteUser = (id) => {
     axios
-      .delete(`https://api.derenkarabulak.com/api/user/${id}/delete`)
+      .delete(`https://api.derenkarabulak.com/users/user/${id}/delete`)
       .then(function (response) {
         console.log(response.data);
         getUsers();

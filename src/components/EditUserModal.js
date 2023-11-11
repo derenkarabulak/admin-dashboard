@@ -17,7 +17,7 @@ export default function EditUser() {
 
   function getUser() {
     axios
-      .get(`https://api.derenkarabulak.com/api/user/${id}`)
+      .get(`https://api.derenkarabulak.com/users/user/${id}`)
       .then(function (response) {
         console.log(response.data);
         setInputs(response.data);
@@ -33,7 +33,7 @@ export default function EditUser() {
     event.preventDefault();
 
     axios
-      .put(`https://api.derenkarabulak.com/api/users/user/${id}/edit`, inputs)
+      .put(`https://api.derenkarabulak.com/users/user/${id}/edit`, inputs)
       .then(function (response) {
         console.log(response.data);
         navigate("/users");
